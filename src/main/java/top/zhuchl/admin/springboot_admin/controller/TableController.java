@@ -2,7 +2,12 @@ package top.zhuchl.admin.springboot_admin.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import top.zhuchl.admin.springboot_admin.pojo.User;
+
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * @Author AlphaZcl
@@ -19,8 +24,15 @@ public class TableController {
     }
 
     @GetMapping("dynamicTable")
-    public String dynamicTable(){
+    public String dynamicTable(Model model){
         log.info("dynamic_table");
+        /*表格内容遍历*/
+        List<User> users = Arrays.asList(new User("zhangsan", "012345"),
+                new User("lisi", "012345"),
+                new User("wangwu", "012345"),
+                new User("maliu", "012345"),
+                new User("zhaoqi", "012345"));
+        model.addAttribute("users",users);
         return "table/dynamic_table";
     }
 
