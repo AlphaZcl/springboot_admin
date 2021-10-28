@@ -38,11 +38,11 @@ public class IndexController {
     @GetMapping("mainPage")
     public String mainPage(@SessionAttribute(required = false) User user){
         log.info("进入主页User:{}",user);
-        String url = "login";
-        if(user != null && StringUtils.hasLength(user.getUserName()) && StringUtils.hasLength(user.getPassword())){
-            url = "main";
-        }
-        return url;
+//        String url = "login";
+//        if(user != null && StringUtils.hasLength(user.getUserName()) && StringUtils.hasLength(user.getPassword())){
+//            url = "main";
+//        }
+        return "main";
     }
 
 }
