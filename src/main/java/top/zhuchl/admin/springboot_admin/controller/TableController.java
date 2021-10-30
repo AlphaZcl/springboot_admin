@@ -4,6 +4,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import top.zhuchl.admin.springboot_admin.exception.UserTooManyException;
 import top.zhuchl.admin.springboot_admin.pojo.User;
 
 import java.util.Arrays;
@@ -18,8 +20,9 @@ import java.util.List;
 public class TableController {
 
     @GetMapping("basicTable")
-    public String basicTable(){
+    public String basicTable(@RequestParam("b")int b){
         log.info("basic_table");
+        int a =  10/0;
         return "table/basic_table";
     }
 
@@ -33,6 +36,9 @@ public class TableController {
                 new User("maliu", "012345"),
                 new User("zhaoqi", "012345"));
         model.addAttribute("users",users);
+        if(users.size()>4){
+            throw new UserTooManyException();
+        }
         return "table/dynamic_table";
     }
 
