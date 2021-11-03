@@ -9,3 +9,9 @@ spring:
     multipart:
       max-file-size: 10MB
       max-request-size: 100MB
+
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: dev01mysql01
+    password: dev01mysql01
+    url: jdbc:mysql://172.16.116.131:3306/dev01mysql01?useSSL=false
