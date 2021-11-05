@@ -17,8 +17,8 @@ import top.zhuchl.admin.springboot_admin.interceptor.LoginInterceptor;
  * @Date 2021/11/2
  **/
 @Deprecated
-@EnableWebMvc
-@Configuration
+//@EnableWebMvc
+//@Configuration
 public class AdminWebConfig implements WebMvcConfigurer {
 
     @Override

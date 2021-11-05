@@ -19,7 +19,7 @@ import java.util.Arrays;
  * @Author AlphaZcl
  * @Date 2021/11/2
  **/
-@Configuration
+//@Configuration
 @Slf4j
 public class MyRegistConfig {
 

@@ -1,5 +1,6 @@
 package top.zhuchl.admin.springboot_admin.config;
 
+import com.alibaba.druid.filter.stat.StatFilter;
 import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.support.http.StatViewServlet;
 import com.alibaba.druid.support.http.WebStatFilter;
@@ -17,6 +18,7 @@ import java.util.Arrays;
  * @Author AlphaZcl
  * @Date 2021/11/3
  **/
+@Deprecated
 @Configuration
 public class MyDataSourceConfig {
 
@@ -41,19 +43,27 @@ public class MyDataSourceConfig {
      *
      * @return
      */
-    @Bean("statView")
+    @Bean
     public ServletRegistrationBean<StatViewServlet> myServlet(){
         ServletRegistrationBean<StatViewServlet> servletRegistrationBean =
                 new ServletRegistrationBean<>(new StatViewServlet(),"/druid/*");
         return servletRegistrationBean;
     }
 
-    @Bean("webStatFilter")
+    @Bean
     public FilterRegistrationBean<WebStatFilter> myFilter(){
         FilterRegistrationBean<WebStatFilter> filterRegistrationBean =
                 new FilterRegistrationBean<>(new WebStatFilter());
         filterRegistrationBean.setUrlPatterns(Arrays.asList("/*"));
         filterRegistrationBean.addInitParameter("exclusions","*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*");
         return filterRegistrationBean;
+    }
+
+    @Bean
+    public StatFilter statFilter(){
+        StatFilter statFilter = new StatFilter();
+        statFilter.setSlowSqlMillis(10000);
+        statFilter.setLogSlowSql(true);
+        return statFilter;
     }
 }
