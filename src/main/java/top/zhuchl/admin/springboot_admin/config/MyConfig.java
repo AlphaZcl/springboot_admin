@@ -20,7 +20,7 @@ public class MyConfig {
             public void addInterceptors(InterceptorRegistry registry) {
                 registry.addInterceptor(new LoginInterceptor())
                         .addPathPatterns("/**")//所有请求都会被拦截，包括静态资源
-                        .excludePathPatterns("/", "/signIn","/js/**","/css/**","/images/**","/fonts/**","/error/**");
+                        .excludePathPatterns("/", "/signIn","/querySql","/js/**","/css/**","/images/**","/fonts/**","/error/**");
             }
         };
     }

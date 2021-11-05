@@ -1,11 +1,16 @@
 package top.zhuchl.admin.springboot_admin.controller;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
+import top.zhuchl.admin.springboot_admin.DO.UserInfo;
 import top.zhuchl.admin.springboot_admin.pojo.User;
 
 import javax.servlet.http.HttpSession;
@@ -17,6 +22,9 @@ import javax.servlet.http.HttpSession;
 @Controller
 @Slf4j
 public class IndexController {
+
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
 
     @GetMapping(value={"loginPage","/"})
     public String loginPage(){
@@ -43,6 +51,16 @@ public class IndexController {
 //            url = "main";
 //        }
         return "main";
+    }
+
+    @GetMapping("querySql")
+    @ResponseBody
+    public UserInfo tesSql(){
+        String sql = "SELECT * FROM user_info WHERE sys_id=?";
+        Object[] args = {1};
+        UserInfo userInfo = jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(UserInfo.class), args);
+        log.info("query userinfo : {}",userInfo);
+        return userInfo;
     }
 
 }

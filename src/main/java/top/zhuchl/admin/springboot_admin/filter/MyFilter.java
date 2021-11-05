@@ -12,7 +12,8 @@ import java.io.IOException;
  * @Author AlphaZcl
  * @Date 2021/11/2
  **/
-@WebFilter(urlPatterns = {"/css/*","/images/*"})
+@Deprecated
+//@WebFilter(urlPatterns = {"/css/*","/images/*"})
 @Slf4j
 public class MyFilter implements Filter {
     @Override

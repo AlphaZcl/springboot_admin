@@ -13,7 +13,8 @@ import java.io.IOException;
  * @Author AlphaZcl
  * @Date 2021/10/30
  **/
-@WebServlet(urlPatterns = "/my_url")
+@Deprecated
+//@WebServlet(urlPatterns = "/my_url")
 @Slf4j
 public class MyServlet extends HttpServlet {
 

@@ -7,6 +7,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import top.zhuchl.admin.springboot_admin.DO.UserInfo;
 import top.zhuchl.admin.springboot_admin.SpringbootAdminApplicationTests;
 
+import javax.sql.DataSource;
+
 /**
  * @Author AlphaZcl
  * @Date 2021/11/3
@@ -16,6 +18,9 @@ public class JdbcTemplateTest extends SpringbootAdminApplicationTests {
 
     @Autowired
     JdbcTemplate jdbcTemplate;
+
+    @Autowired
+    DataSource dataSource;
 
     @Test
     public void testConnect(){
@@ -28,5 +33,6 @@ public class JdbcTemplateTest extends SpringbootAdminApplicationTests {
             jdbcTemplate.update(sql,args);
         }
         log.info("count:{}",count);
+        log.info("dataSource Type : {}",dataSource.getClass().getName());
     }
 }

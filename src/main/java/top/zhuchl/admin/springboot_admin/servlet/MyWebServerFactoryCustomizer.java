@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
  * @Author AlphaZcl
  * @Date 2021/11/2
  **/
-@Component
+//@Component
 public class MyWebServerFactoryCustomizer implements WebServerFactoryCustomizer<ConfigurableServletWebServerFactory> {
 
     @Override

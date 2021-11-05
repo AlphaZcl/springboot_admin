@@ -10,7 +10,8 @@ import javax.servlet.annotation.WebListener;
  * @Author AlphaZcl
  * @Date 2021/11/2
  **/
-@WebListener
+@Deprecated
+//@WebListener
 @Slf4j
 public class MyServletContextListener implements ServletContextListener {
 
