@@ -15,3 +15,30 @@ spring:
     username: dev01mysql01
     password: dev01mysql01
     url: jdbc:mysql://172.16.116.131:3306/dev01mysql01?useSSL=false
+    druid:
+
+      stat-view-servlet:
+        login-username: root
+        login-password: root
+        reset-enable: false
+        enabled: true
+
+      web-stat-filter:
+        enabled: true
+        exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*'
+        url-pattern: /*
+
+      filter:
+        stat:
+          log-slow-sql: true
+          slow-sql-millis: 10000
+          enabled: true
+
+        wall:
+          enabled: true
+          config:
+            drop-table-allow: false
+            update-allow: false
+      aop-patterns:
+
+
