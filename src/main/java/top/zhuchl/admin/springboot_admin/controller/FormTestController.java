@@ -13,6 +13,7 @@ import java.io.IOException;
  * @Date 2021/10/28
  **/
 @Controller
+@RequestMapping("admin")
 @Slf4j
 public class FormTestController {
 

@@ -20,6 +20,7 @@ import javax.servlet.http.HttpSession;
  * @Date 2021/10/26
  **/
 @Controller
+@RequestMapping("admin")
 @Slf4j
 public class IndexController {
 

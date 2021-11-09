@@ -22,7 +22,7 @@ public class MyConfig {
             @Override
             public void addInterceptors(InterceptorRegistry registry) {
                 registry.addInterceptor(new LoginInterceptor())
-                        .addPathPatterns("/**")//所有请求都会被拦截，包括静态资源
+                        .addPathPatterns("/admin/*")//所有请求都会被拦截，包括静态资源
                         .excludePathPatterns("/", "/signIn","/querySql","/js/**","/css/**","/images/**","/fonts/**","/error/**");
             }
         };

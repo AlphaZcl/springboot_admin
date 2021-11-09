@@ -14,7 +14,6 @@ import java.io.IOException;
  * @Author AlphaZcl
  * @Date 2021/10/30
  **/
-@Order(value = Ordered.HIGHEST_PRECEDENCE)
 @Component
 public class CustomerHandlerExceptionResolver implements HandlerExceptionResolver {
 
@@ -23,7 +22,7 @@ public class CustomerHandlerExceptionResolver implements HandlerExceptionResolve
                                          HttpServletResponse response,
                                          Object handler, Exception ex) {
         try {
-            response.sendError(511,"自定义错误");
+            response.sendError(511,ex.getMessage());
         } catch (IOException e) {
             e.printStackTrace();
         }
