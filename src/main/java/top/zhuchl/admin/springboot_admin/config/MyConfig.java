@@ -1,5 +1,7 @@
 package top.zhuchl.admin.springboot_admin.config;
 
+import org.mybatis.spring.annotation.MapperScan;
+import org.mybatis.spring.annotation.MapperScans;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -11,6 +13,7 @@ import top.zhuchl.admin.springboot_admin.interceptor.LoginInterceptor;
  * @Date 2021/10/28
  **/
 @Configuration
+@MapperScan("top.zhuchl.admin.springboot_admin.mapper")
 public class MyConfig {
 
     @Bean("webMvcConfigurer")
