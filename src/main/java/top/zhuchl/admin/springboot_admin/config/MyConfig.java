@@ -13,7 +13,6 @@ import top.zhuchl.admin.springboot_admin.interceptor.LoginInterceptor;
  * @Date 2021/10/28
  **/
 @Configuration
-@MapperScan("top.zhuchl.admin.springboot_admin.mapper")
 public class MyConfig {
 
     @Bean("webMvcConfigurer")

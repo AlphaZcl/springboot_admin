@@ -42,12 +42,19 @@ spring:
             update-allow: false
 #            select-all-column-allow: false
 
-mybatis:
-#  config-location: classpath:mybatis/mybatis-config.xml
-  type-aliases-package: top.zhuchl.admin.springboot_admin.DO
+#mybatis:
+##  config-location: classpath:mybatis/mybatis-config.xml
+#  type-aliases-package: top.zhuchl.admin.springboot_admin.DO
+#  mapper-locations: classpath:mybatis/mappers/*.xml
+#  configuration:
+#    map-underscore-to-camel-case: true
+
+mybatis-plus:
   mapper-locations: classpath:mybatis/mappers/*.xml
   configuration:
     map-underscore-to-camel-case: true
+  type-aliases-package: top.zhuchl.admin.springboot_admin.DO
+
 
 
 
