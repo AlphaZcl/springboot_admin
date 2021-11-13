@@ -17,7 +17,7 @@ import java.util.List;
  * @Date 2021/10/27
  **/
 @Controller
-@RequestMapping("admin")
+@RequestMapping
 @Slf4j
 public class TableController {
 
