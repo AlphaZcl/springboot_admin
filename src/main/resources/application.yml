@@ -71,6 +71,42 @@ mybatis-plus:
     map-underscore-to-camel-case: true
   type-aliases-package: top.zhuchl.admin.springboot_admin.DO
 
+#指标监控
+management:
+  endpoints:
+    enabled-by-default: true #暴露所有端点信息 false 关闭所有监控点
+    web:
+      exposure:
+        include: '*' #以web方式暴露
+  endpoint:
+    health:
+      show-details: always
+#      enabled: true
+#
+#    metrics:
+#      enabled: true
+#
+#    info:
+#      enabled: true
+#
+#    beans:
+#      enabled: true
+#
+#    mappings:
+#      enabled: true
+
+#    loggers:
+#      enabled: true
+
+info:
+  appName: boot-admin
+  appVersion: 1.0.0
+  maven-project-name: @project.artifactId@  #使用@@可以获取maven的pom文件值
+  maven-project-version: @project.version@
+
+
+
+
 
 
 

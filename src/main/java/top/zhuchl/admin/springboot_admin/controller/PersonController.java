@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 import top.zhuchl.admin.springboot_admin.DO.Person;
@@ -36,7 +37,7 @@ public class PersonController {
     }
 
     @GetMapping("getPersonPage")
-    public PersonVO queryList(Integer current,Integer size,Integer age){
+    public PersonVO queryList(@RequestParam Integer current, @RequestParam Integer size,@RequestParam(required = false,defaultValue = "0") Integer age){
         PersonVO personVO = new PersonVO();
         IPage<Person> personIPage = personService.selectUserPage(current, size, age);
         personVO.setPersonList(personIPage.getRecords());
