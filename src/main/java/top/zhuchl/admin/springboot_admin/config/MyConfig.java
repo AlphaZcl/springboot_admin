@@ -27,9 +27,9 @@ public class MyConfig {
             public void addInterceptors(InterceptorRegistry registry) {
                 registry.addInterceptor(new LoginInterceptor())
                         .addPathPatterns("/**")//所有请求都会被拦截，包括静态资源
-                        .excludePathPatterns("/", "/signIn","/data/*","/js/**","/css/**","/images/**","/fonts/**","/error/**");
+                        .excludePathPatterns("/", "/signIn","/actuator/**","/data/**","/js/**","/css/**","/mages/**","/images/**","/fonts/**","/error/**");
                 registry.addInterceptor(redisUrlCountInterceptor).addPathPatterns("/**")
-                        .excludePathPatterns("/","/data/*","/js/**","/css/**","/images/**","/fonts/**","/error/**");
+                        .excludePathPatterns("/","/actuator/**","/data/**","/js/**","/css/**","/mages/**","/images/**","/fonts/**","/error/**");
             }
         };
     }

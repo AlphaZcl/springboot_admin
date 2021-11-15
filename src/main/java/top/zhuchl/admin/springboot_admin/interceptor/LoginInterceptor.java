@@ -1,6 +1,8 @@
 package top.zhuchl.admin.springboot_admin.interceptor;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.core.Ordered;
+import org.springframework.core.annotation.Order;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -15,10 +17,12 @@ import javax.servlet.http.HttpSession;
  * @Date 2021/10/28
  **/
 @Slf4j
+@Order(1)
 public class LoginInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+        log.info("========LoginInterceptor preHandle=========");
         HttpSession session = request.getSession();
         Object user = session.getAttribute("user");
         if(user != null){
@@ -34,11 +38,11 @@ public class LoginInterceptor implements HandlerInterceptor {
 
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
-//        log.info("ModelAndView:{}",modelAndView);
+        log.info("========LoginInterceptor postHandle==========");
     }
 
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
-//        log.info("Exception:{}",ex);
+        log.info("==========LoginInterceptor afterCompletion===========");
     }
 }
