@@ -1,0 +1,7 @@
+pojo:
+  user:
+    userName: zqq
+    password: 11111
+
+server:
+  port: 8888

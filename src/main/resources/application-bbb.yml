@@ -1,0 +1,7 @@
+pojo:
+  user:
+    user-name: ssss
+    password: sssss
+
+server:
+  port: 9999

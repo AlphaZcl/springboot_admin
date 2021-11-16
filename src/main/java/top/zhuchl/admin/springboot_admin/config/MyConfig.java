@@ -1,20 +1,23 @@
 package top.zhuchl.admin.springboot_admin.config;
 
-import org.mybatis.spring.annotation.MapperScan;
-import org.mybatis.spring.annotation.MapperScans;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import top.zhuchl.admin.springboot_admin.interceptor.LoginInterceptor;
 import top.zhuchl.admin.springboot_admin.interceptor.RedisUrlCountInterceptor;
+import top.zhuchl.admin.springboot_admin.pojo.User;
 
 /**
  * @Author AlphaZcl
  * @Date 2021/10/28
  **/
 @Configuration
+@Profile("aaa")
+@EnableConfigurationProperties(User.class)
 public class MyConfig {
 
     @Autowired
